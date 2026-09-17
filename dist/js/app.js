@@ -2,14 +2,14 @@ import {videoGallery,bindVideoGallery} from './video-gallery.js?v=gallery-ring-2
 import {bindSceneMotion} from './scene-motion.js?v=scenes-1';
 import {bindTeacherMotion} from './teacher-motion.js?v=teacher-motion-1';
 import {bindChartTableLinks} from './chart-table-links.js?v=table-links-1';
-import {bindCreditMotion} from './credit-motion.js?v=table-links-1';
-import {pipeline} from './pipeline.js?v=window-align-1';
+import {bindCreditMotion} from './credit-motion.js?v=credit-trim-1';
+import {pipeline} from './pipeline.js?v=credit-trim-1';
 import {bindPipelineMotion} from './pipeline-motion.js?v=table-links-1';
 import {bindOverview} from './overview-motion.js?v=classroom-2';
-import {overview,teachers,credit,scenes,esc} from './figures.js?v=scenes-1';
+import {overview,teachers,credit,scenes,esc} from './figures.js?v=franka-panda-1';
 import {chart,performanceBars,realBars,bindCharts} from './charts.js?v=table-links-1';
 import {table,ablationTable} from './tables.js?v=table-links-1';
-import {media} from './content.js?v=gallery-1';
+import {media} from './content.js?v=franka-panda-1';
 import {idea} from './idea-content.js';
 import {classroom,bindClassroom} from './classroom.js?v=corrections-1';
 import {bindChartMotion} from './chart-motion.js';
@@ -41,7 +41,7 @@ async function init(){
  <p class="section-intro">A successful teacher guides a failed student, with the missed grasp marked in red. This illustrates credit allocation; it does not establish causal error localization.</p>
  ${figure(6,'A closer look at the student’s credit',credit(graphics))}</section>
  <section class="section wrap" id="real-world">${heading('05 / Real world','From simulation to physical interaction.','05')}
- <p class="section-intro">Five manipulation tasks evaluate GTPO on a UR5 with base and wrist cameras. A π<sub>0.5</sub> checkpoint fine-tuned on 50 demonstrations initializes three rounds of on-policy training.</p>
+ <p class="section-intro">Five manipulation tasks evaluate GTPO on a Franka Panda with base and wrist cameras. A π<sub>0.5</sub> checkpoint fine-tuned on 50 demonstrations initializes three rounds of on-policy training.</p>
  ${figure(7,'Robot setup and tasks',scenes())}
  <div class="comparison protocol"><div><h3 class="subheading">Matched training, physical trials.</h3><p>GRPO and GTPO share the first round of rollouts, then collect fresh data with their latest policies. Groups use nearby same-task initial states and require an autonomous success.</p></div><div><h3 class="subheading">Interventions stay separate.</h3><p>Interrupted policy prefixes count as failures. Human corrective segments enter an auxiliary SFT loss only. Both methods use a PPO-style clipped probability-ratio loss; neither uses a critic or GAE.</p></div></div>
  ${figure(8,'Real-world learning and final success',`<div class="charts-grid">${chart('rounds','(a) Three on-policy rounds',charts.rounds,{rounds:true,ymin:15,yticks:[20,40,60,80,100]})}${realBars(real)}</div>`)}

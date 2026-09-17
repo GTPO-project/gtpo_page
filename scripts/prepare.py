@@ -6,7 +6,7 @@ Only writes inside academic-site; source papers, scripts and data are never modi
 from pathlib import Path
 import ast, csv, html, io, json, re, shutil, zipfile
 import xml.etree.ElementTree as ET
-from PIL import Image
+from PIL import Image, ImageOps
 from collections import Counter
 
 SITE = Path(__file__).resolve().parents[1]
@@ -142,11 +142,14 @@ save('tables.json',tables)
 
 z=zipfile.ZipFile(ROOT/'images.pptx')
 photos=list(range(5,9))+[10]+list(range(19,25))+list(range(27,33))+list(range(63,84))
+# Stable website IDs preserve task identity after the real-world PPT photos were reordered.
+real_photo_sources = {63:65, 64:64, 65:66, 66:67, 67:63, 68:68}
 assetmap={};inventory=[]
 for n in photos:
-    names=[p for p in z.namelist() if re.fullmatch(fr'ppt/media/image{n}\.(png|jpe?g)',p)]
+    source_n = real_photo_sources.get(n,n)
+    names=[p for p in z.namelist() if re.fullmatch(fr'ppt/media/image{source_n}\.(png|jpe?g)',p)]
     if not names:continue
-    im=Image.open(io.BytesIO(z.read(names[0]))).convert('RGB')
+    im=ImageOps.exif_transpose(Image.open(io.BytesIO(z.read(names[0])))).convert('RGB')
     im.thumbnail((1600,1400))
     path=f'assets/photo-{n}.webp';im.save(DIST/path,'WEBP',quality=89)
     assetmap[str(n)]=path

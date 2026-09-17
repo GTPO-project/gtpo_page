@@ -113,7 +113,6 @@ function creditFlow(g) {
       <div class="credit-phase credit-scoring" data-credit-phase="0"><div class="credit-phase-head"><h5>01 <span>Score aligned progress</span></h5><button class="credit-pause" type="button" hidden aria-label="Pause credit animation">Pause</button></div><div class="pipe-art">${creditScoring(g)}</div></div>
       <div class="credit-phase credit-allocation" data-credit-phase="1"><div class="credit-phase-head"><h5>02 <span>Distribute credit over time</span></h5><button class="credit-pause" type="button" hidden aria-label="Pause credit animation">Pause</button></div><div class="pipe-art">${creditAllocation(g)}</div></div>
     </div>
-    <div class="credit-update"><span class="credit-status">Aligned progress becomes guidance for each action chunk.</span><strong>VLA policy update <span aria-hidden="true">↗</span></strong></div>
   </div>`;
 }
 

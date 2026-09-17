@@ -81,13 +81,10 @@
 .credit-pause[hidden] { display:none; }
 .credit-bars rect { transform-box:fill-box; }
 .credit-phase[data-state="active"] .credit-phase-head { border-color:var(--green); }
-.credit-update { display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:14px;color:var(--muted);padding:16px 0;border-top:1px solid var(--line); }
-.credit-update strong { color:var(--green);font-size:15px;white-space:nowrap; }
 @container (max-width:650px) {
   .credit-stages { grid-template-columns:1fr;gap:28px; }
   .credit-scoring .pipe-art { max-width:320px;margin:auto; }
   .credit-allocation .pipe-art { max-width:540px;margin:auto; }
-  .credit-update { flex-wrap:wrap;gap:12px; }
 }
 @container (max-width:460px) {
   .credit-allocation svg text { font-size:24px; }
@@ -103,3 +100,9 @@
 .credit-flow:not([data-credit-mode="complete"]) .credit-bars-62 rect:not([data-revealed]) { opacity:0; }
 .credit-transfer-token,.credit-row-particles rect { transform-box:view-box;transform-origin:0 0; }
 .credit-flow[data-credit-mode="complete"] .credit-transfer-overlay { visibility:hidden; }
+
+/* End the method at the diagram, without a caption or stacked bottom spacing. */
+#method { padding-bottom:24px; }
+#figure-2 { margin-bottom:0; }
+.pipeline-figure .pipe-section:last-child { padding-bottom:0; }
+@media(max-width:680px) { #method { padding-bottom:20px; } }

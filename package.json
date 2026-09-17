@@ -1,0 +1,12 @@
+{
+  "name": "gtpo-academic-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A local, source-backed academic website for GTPO.",
+  "scripts": {
+    "start": "python3 scripts/serve.py",
+    "check": "node scripts/check.mjs",
+    "prepare:data": "python3 scripts/prepare.py"
+  }
+}

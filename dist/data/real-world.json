@@ -1,0 +1,1 @@
+{"SFT":{"Stacking":60,"Battery insertion":45,"Soldering":20,"Screw":20,"Opening":40},"DATA":{"Stacking":{"GRPO":[65,70,85],"GTPO":[70,85,95]},"Battery insertion":{"GRPO":[55,65,80],"GTPO":[55,75,95]},"Soldering":{"GRPO":[25,50,65],"GTPO":[35,60,85]},"Screw":{"GRPO":[30,50,75],"GTPO":[45,65,90]},"Opening":{"GRPO":[50,70,85],"GTPO":[60,85,95]}}}

@@ -241,3 +241,23 @@ a.scene-link:hover .scene-caption,a.scene-link:focus-visible .scene-caption { co
  .ablation-select-row,.ablation-pair g[data-series],.ablation-pair .legend-item,
  .ablation-pair g[data-series]>path,.ablation-pair g[data-series]>circle { transition:none; }
 }
+
+/* Keep results, ablations and credit section boundaries compact. */
+#results,#ablations,#credit { padding-bottom:24px; }
+#table-3,#figure-5,#figure-6 { margin-bottom:0; }
+#ablations,#credit,#real-world { padding-top:32px; }
+@media(max-width:680px) {
+  #results,#ablations,#credit { padding-bottom:20px; }
+  #ablations,#credit,#real-world { padding-top:24px; }
+}
+
+/* Figure 6 follows the observation timeline without changing source bar heights. */
+.detail-controls { display:flex;align-items:center;gap:10px; }
+.detail-pause { border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--green);font:12px/1.4 var(--sans);padding:3px 8px; }
+.detail-pause[hidden] { display:none; }
+[data-credit-detail] .film-cell { transition:opacity .2s,box-shadow .2s; }
+[data-credit-detail] .film-cell.detail-current { box-shadow:0 0 0 3px var(--green); }
+[data-credit-detail] [data-credit-film="student"] .detail-current { box-shadow:0 0 0 3px var(--red); }
+[data-credit-detail] .film-cell.error.detail-current { box-shadow:0 0 0 5px #9b484333; }
+.detail-weight-bars rect { transform-box:fill-box;transform-origin:center bottom; }
+@media(prefers-reduced-motion:reduce) { [data-credit-detail] .film-cell { transition:none; } }

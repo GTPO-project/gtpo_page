@@ -1,3 +1,4 @@
+import {bindCreditDetail} from './credit-detail-motion.js?v=1';
 import {videoGallery,bindVideoGallery} from './video-gallery.js?v=gallery-ring-2';
 import {bindSceneMotion} from './scene-motion.js?v=scenes-1';
 import {bindTeacherMotion} from './teacher-motion.js?v=teacher-motion-1';
@@ -6,7 +7,7 @@ import {bindCreditMotion} from './credit-motion.js?v=credit-trim-1';
 import {pipeline} from './pipeline.js?v=credit-trim-1';
 import {bindPipelineMotion} from './pipeline-motion.js?v=table-links-1';
 import {bindOverview} from './overview-motion.js?v=classroom-2';
-import {overview,teachers,credit,scenes,esc} from './figures.js?v=franka-panda-1';
+import {overview,teachers,credit,scenes,esc} from './figures.js?v=credit-detail-1';
 import {chart,performanceBars,realBars,bindCharts} from './charts.js?v=table-links-1';
 import {table,ablationTable} from './tables.js?v=table-links-1';
 import {media} from './content.js?v=franka-panda-1';
@@ -48,10 +49,10 @@ async function init(){
  ${videoGallery(media.tasks)}</section>`;
  document.querySelector('#overview-performance').innerHTML=performanceBars();
  document.querySelector('#overview-efficiency').innerHTML=chart('overview-object','(d) Efficiency',charts.object,{tts:true,ymin:38,insetLegend:true});
- const chartMap={...charts,'overview-object':charts.object};bindCharts(chartMap);bindChartTableLinks(document);bindTeacherMotion(document);bindExpansion(chartMap);bindOverview(document);bindClassroom(document);bindChartMotion(document);bindSceneMotion(document);bindVideoGallery(media.tasks);bindPipelineMotion(document);bindCreditMotion(document);bindNavigation();document.documentElement.dataset.ready='true';
+ const chartMap={...charts,'overview-object':charts.object};bindCharts(chartMap);bindChartTableLinks(document);bindTeacherMotion(document);bindExpansion(chartMap);bindOverview(document);bindClassroom(document);bindChartMotion(document);bindSceneMotion(document);bindVideoGallery(media.tasks);bindPipelineMotion(document);bindCreditMotion(document);bindCreditDetail(document);bindNavigation();document.documentElement.dataset.ready='true';
  if(location.hash)requestAnimationFrame(()=>document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({block:'start',behavior:'instant'}));
 }
-function bindExpansion(charts){const dialog=document.querySelector('#figure-dialog');document.addEventListener('click',e=>{const b=e.target.closest('[data-expand]');if(!b)return;const target=document.getElementById(b.dataset.expand);const area=dialog.querySelector('.dialog-content');area.innerHTML=target.querySelector('.figure-body').outerHTML;const clonedIds=new Map();area.querySelectorAll('[id]').forEach(el=>{clonedIds.set(el.id,`expanded-${el.id}`);el.id=`expanded-${el.id}`;});area.querySelectorAll('*').forEach(el=>{for(const attr of ['fill','stroke','filter','clip-path','mask','marker-start','marker-mid','marker-end']){const value=el.getAttribute(attr);if(value)el.setAttribute(attr,value.replace(/url\(#([^)]*)\)/g,(match,id)=>clonedIds.has(id)?`url(#${clonedIds.get(id)})`:match));}});for(const attr of ['aria-describedby','aria-labelledby'])area.querySelectorAll(`[${attr}]`).forEach(el=>el.setAttribute(attr,`expanded-${el.getAttribute(attr)}`));dialog.showModal();bindCharts(charts,area);bindChartTableLinks(area);bindTeacherMotion(area);bindOverview(area);});document.querySelector('#close-dialog').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('close',()=>{dialog.querySelector('.dialog-content').replaceChildren();});}
+function bindExpansion(charts){const dialog=document.querySelector('#figure-dialog');document.addEventListener('click',e=>{const b=e.target.closest('[data-expand]');if(!b)return;const target=document.getElementById(b.dataset.expand);const area=dialog.querySelector('.dialog-content');area.innerHTML=target.querySelector('.figure-body').outerHTML;const clonedIds=new Map();area.querySelectorAll('[id]').forEach(el=>{clonedIds.set(el.id,`expanded-${el.id}`);el.id=`expanded-${el.id}`;});area.querySelectorAll('*').forEach(el=>{for(const attr of ['fill','stroke','filter','clip-path','mask','marker-start','marker-mid','marker-end']){const value=el.getAttribute(attr);if(value)el.setAttribute(attr,value.replace(/url\(#([^)]*)\)/g,(match,id)=>clonedIds.has(id)?`url(#${clonedIds.get(id)})`:match));}});for(const attr of ['aria-describedby','aria-labelledby'])area.querySelectorAll(`[${attr}]`).forEach(el=>el.setAttribute(attr,`expanded-${el.getAttribute(attr)}`));dialog.showModal();bindCharts(charts,area);bindChartTableLinks(area);bindTeacherMotion(area);bindOverview(area);bindCreditDetail(area,{static:true});});document.querySelector('#close-dialog').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('close',()=>{dialog.querySelector('.dialog-content').replaceChildren();});}
 function bindNavigation(){
  const links=[...document.querySelectorAll('nav a')],targets=links.map(a=>document.querySelector(a.hash));
  let scheduled=false;

@@ -8,13 +8,13 @@ export function videoGallery(tasks){
   </button></article>`).join('');
  return `<section class="video-gallery" id="videos" aria-label="Task video gallery" aria-roledescription="carousel">
   ${tasks.map(task=>`<span class="video-anchor" id="video-${task.id}" tabindex="-1"></span>`).join('')}
-  <div class="gallery-heading"><h3 class="subheading">Task demonstrations</h3><div class="gallery-cycle-controls"><button type="button" data-gallery="previous" aria-label="Previous task">Previous</button><button type="button" data-gallery="next" aria-label="Next task">Next</button><button type="button" data-gallery="cycle">Pause gallery</button></div></div>
+  <div class="gallery-heading"><div class="gallery-title"><h3 class="subheading">Task demonstrations</h3><p class="gallery-speed-note">All videos shown at 2× speed · Muted</p></div><div class="gallery-cycle-controls"><button type="button" data-gallery="previous" aria-label="Previous task">Previous</button><button type="button" data-gallery="next" aria-label="Next task">Next</button><button type="button" data-gallery="cycle">Pause gallery</button></div></div>
   <div class="gallery-viewport"><div class="gallery-track">${cards}</div><button class="gallery-side-select gallery-side-left" type="button" data-gallery="previous" aria-label="Select previous video"></button><button class="gallery-side-select gallery-side-right" type="button" data-gallery="next" aria-label="Select next video"></button></div>
   <div class="gallery-details"><p class="gallery-current"></p><div class="gallery-playback"><button type="button" data-gallery="playback">Pause video</button><button type="button" data-gallery="full">Full video</button></div></div>
   <div class="gallery-task-list" role="group" aria-label="Choose task">${tasks.map((task,i)=>`<button type="button" data-select-task="${i}" aria-pressed="false">${esc(task.title)}</button>`).join('')}</div>
   <p class="visually-hidden gallery-announcement" aria-live="polite"></p>
  </section>
- <dialog id="task-video-dialog" aria-labelledby="task-video-title"><div class="task-video-bar"><h3 id="task-video-title"></h3><button type="button" data-close-video>Close</button></div><video controls playsinline preload="metadata" aria-label="Full task video"></video><p class="video-error" role="status" hidden>Video could not load. Close and reopen to retry.</p></dialog>`;
+ <dialog id="task-video-dialog" aria-labelledby="task-video-title"><div class="task-video-bar"><h3 id="task-video-title"></h3><button type="button" data-close-video>Close</button></div><video controls muted playsinline preload="metadata" aria-label="Full task video"></video><p class="video-error" role="status" hidden>Video could not load. Close and reopen to retry.</p></dialog>`;
 }
 
 export function bindVideoGallery(tasks){

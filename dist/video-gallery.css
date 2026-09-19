@@ -2,6 +2,7 @@
 .video-gallery:focus { outline:none; }
 .video-anchor { position:absolute;top:0;left:0;width:1px;height:1px;scroll-margin-top:20px;outline:none; }
 .gallery-heading { display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;border-top:1px solid var(--line); }
+.gallery-speed-note { margin:7px 0 0;color:var(--green);font-size:13px;line-height:1.5; }
 .gallery-heading .subheading { margin:0;font:400 26px/1.2 var(--serif); }
 .gallery-cycle-controls,.gallery-playback { display:flex;align-items:center;gap:8px;flex-wrap:wrap; }
 .gallery-cycle-controls button,.gallery-playback button { border:1px solid #c8cec0;border-radius:4px;padding:7px 11px;background:transparent;color:var(--green);font-size:12px;line-height:1.5; }

@@ -28,7 +28,10 @@ jobs:
           for file in dist/js/*.js; do node --check "$file"; done
           test -s dist/index.html
           test -s dist/assets/gtpo-paper.pdf
-          test -s dist/assets/videos/solder-component-v1.m4v
+          test -s dist/assets/videos/solder-component-2x-v2.mp4
+          test -s dist/assets/videos/drive-screw-2x-v2.mp4
+          test -s dist/assets/videos/stack-blocks-2x-v1.mp4
+          test -s dist/assets/videos/insert-battery-2x-v1.mp4
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload website

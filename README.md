@@ -57,7 +57,9 @@ Run `npm run check`. This verifies all 3,089 recorded points against the source 
 
 Edit `media.tasks` in `dist/js/content.js` to add the remaining videos. Keep each task's stable `id` so task-photo links continue to select it. A null `src` shows its poster and “Video forthcoming,” with no playback controls.
 
-The supplied `DJI_20260917152353_0085_D.mp4` is preserved outside the site. The Solder component web copy is `dist/assets/videos/solder-component-v1.m4v` (H.264, 1920×1080, approximately 18.44 seconds); its JPEG poster is extracted from the same clip. The other four tasks remain forthcoming. The GitHub Pages workflow publishes the same static files after repository setup.
+The supplied `DJI_20260917152353_0085_D.mp4` is preserved outside the site. The retained original Solder web copy is `dist/assets/videos/solder-component-v1.m4v` (H.264, 1920×1080, approximately 18.44 seconds); its JPEG poster is extracted from the same clip. Pop the top remains forthcoming. The GitHub Pages workflow publishes the same static files after repository setup.
+
+Drive screw uses `dist/assets/videos/drive-screw-2x-v2.mp4`: the supplied `微信视频2026-09-19_140401_518.mp4` provides the global view and `微信视频2026-09-19_140343_204.mp4` the bottom-left close-up. The inset is 27.5% of the frame width, matching Solder. Its first 1.05 seconds are trimmed to synchronize both recordings (audio correlation, cross-checked against the screwdriver LED). Both views then run at 2× speed in one 1920×1080 H.264 file, approximately 19.04 seconds long. The published silent copy is `drive-screw-2x-v2.mp4`; the existing 2× video stream is preserved without further acceleration. The HLG close-up is tone-mapped to SDR BT.709. Originals are unchanged. To reproduce the clip and poster, run `python3 scripts/render-screw-video.py <global-video> <close-up-video> --ffmpeg <ffmpeg-path>`.
 
 Run `python3 scripts/check-media-server.py` to verify byte-range responses and `npm run check` for source/data integrity.
 
@@ -68,3 +70,5 @@ The repository is `GTPO-project/gtpo_page`. In the repository settings, select *
 The local checkout uses a repository-scoped SSH command and its own GTPO key. No global SSH configuration or pre-existing identity is changed. SSH authentication permits Git transport; configuring Pages in GitHub requires repository settings access.
 
 `npm run check` is the full local provenance audit and uses the original CSVs and paper in the parent research folder. CI checks the standalone website files and syntax without uploading that research folder.
+
+All available task videos are now baked to 2× speed and have no audio track, including in the full viewer. Stack blocks (`stack-blocks-2x-v1.mp4`, about 19.67s) and Insert battery (`insert-battery-2x-v1.mp4`, about 16.30s) are generated from the supplied originals with `setpts=(PTS-STARTPTS)/2`, H.264 CRF 20, 59.94 fps, yuv420p and faststart. Solder uses `solder-component-2x-v2.mp4` (about 9.22s), accelerated from the previous 18.44s copy. The gallery heading explicitly states the speed and muted audio. Original files and earlier web versions are retained.

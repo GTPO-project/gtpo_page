@@ -1,5 +1,5 @@
 import {bindCreditDetail} from './credit-detail-motion.js?v=1';
-import {videoGallery,bindVideoGallery} from './video-gallery.js?v=gallery-ring-2';
+import {videoGallery,bindVideoGallery} from './video-gallery.js?v=silent-2x-1';
 import {bindSceneMotion} from './scene-motion.js?v=scenes-1';
 import {bindTeacherMotion} from './teacher-motion.js?v=teacher-motion-1';
 import {bindChartTableLinks} from './chart-table-links.js?v=table-links-1';
@@ -10,7 +10,7 @@ import {bindOverview} from './overview-motion.js?v=classroom-2';
 import {overview,teachers,credit,scenes,esc} from './figures.js?v=credit-detail-1';
 import {chart,performanceBars,realBars,bindCharts} from './charts.js?v=table-links-1';
 import {table,ablationTable} from './tables.js?v=table-links-1';
-import {media} from './content.js?v=franka-panda-1';
+import {media} from './content.js?v=silent-2x-1';
 import {idea} from './idea-content.js';
 import {classroom,bindClassroom} from './classroom.js?v=corrections-1';
 import {bindChartMotion} from './chart-motion.js';

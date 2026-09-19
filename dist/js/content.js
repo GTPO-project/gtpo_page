@@ -1,9 +1,9 @@
 // Visible copy and media configuration. A null src is an intentional placeholder.
 export const media={overview:{title:'GTPO · Method overview',poster:null,src:null},tasks:[
- {id:'stack-blocks',title:'Stack blocks',poster:'assets/photo-65.webp?v=franka-panda-1',src:null,description:'Stacking foam blocks with a Franka Panda.'},
- {id:'insert-battery',title:'Insert battery',poster:'assets/photo-63.webp?v=franka-panda-1',src:null,description:'Aligning and inserting a battery.'},
- {id:'solder-component',title:'Solder component',poster:'assets/videos/solder-component-v1.jpg',src:'assets/videos/solder-component-v1.m4v',description:'Contact-rich component soldering.'},
- {id:'drive-screw',title:'Drive screw',poster:'assets/photo-64.webp?v=franka-panda-1',src:null,description:'Fine alignment for screw driving.'},
+ {id:'stack-blocks',title:'Stack blocks',poster:'assets/videos/stack-blocks-2x-v1.jpg',src:'assets/videos/stack-blocks-2x-v1.mp4',description:'Stacking foam blocks with a Franka Panda.'},
+ {id:'insert-battery',title:'Insert battery',poster:'assets/videos/insert-battery-2x-v1.jpg',src:'assets/videos/insert-battery-2x-v1.mp4',description:'Aligning and inserting a battery.'},
+ {id:'solder-component',title:'Solder component',poster:'assets/videos/solder-component-2x-v2.jpg',src:'assets/videos/solder-component-2x-v2.mp4',description:'Contact-rich component soldering.'},
+ {id:'drive-screw',title:'Drive screw',poster:'assets/videos/drive-screw-v1.jpg',src:'assets/videos/drive-screw-2x-v2.mp4',description:'Synchronized global and close-up views of screw driving at 2× speed.'},
  {id:'pop-the-top',title:'Pop the top',poster:'assets/photo-68.webp?v=franka-panda-1',src:null,description:'Removing a bottle cap with a tool.'}]};
 export const captions={
  1:'<strong>GTPO overview.</strong> <strong>(a)</strong> From the same initial environment state, the policy samples a group of successful and failed trajectories and stores them in the rollout buffer. <strong>(b)</strong> GRPO broadcasts each sparse trajectory-level advantage uniformly across all action chunks. <strong>(c)</strong> GTPO pairs each failure with its nearest successful rollout in visual feature space and uses temporal OT alignment to produce a dense advantage over time. <strong>(d)</strong> This dense credit assignment improves both average success rate and RL training efficiency under the same rollout budget and policy initialization.',
